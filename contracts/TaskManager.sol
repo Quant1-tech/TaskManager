@@ -51,11 +51,17 @@ contract TaskManager {
         tasks[_taskIndex].phase = _phase;
     }
 
-    function getTask (uint _taskIndex) public view returns (address _owner, TaskPhase _phase, uint _priority){
+    function getTask (uint _taskIndex) public view returns (address _owner, TaskPhase _phase, uint _priority, string memory _name){
         require (_taskIndex > 0 && _taskIndex < nTasks, "Index task not found");
-        address _owner = tasks[_taskIndex].owner;
-        TaskPhase _phase = tasks[_taskIndex].phase;
-        uint _priority = tasks[_taskIndex].priority;
+        _owner = tasks[_taskIndex].owner;
+        _phase = tasks[_taskIndex].phase;
+        _priority = tasks[_taskIndex].priority;
+        _name = tasks[_taskIndex].name;
+    }
+
+    function listMyTasks () public view returns (uint [] memory _myTasks){
+        _myTasks = myTasks[msg.sender];
+
     }
 
 }
