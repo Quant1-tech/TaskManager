@@ -20,7 +20,9 @@ contract TaskManager {
 
     constructor () public {
         nTasks = 0;
-
+        addTask ("Create Task Manager", TaskPhase.Done, 1);
+        addTask ("Create Your first task", TaskPhase.ToDo, 1);
+        addTask ("Clean your house", TaskPhase.ToDo, 5);
     }
 
     /*
