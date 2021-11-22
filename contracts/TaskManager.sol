@@ -64,4 +64,20 @@ contract TaskManager {
 
     }
 
+    function addTask (string memory _name, TaskPhase _phase, uint _priority) public returns (uint index) {
+        require (_priority >= 1 && _priority <= 5, "Priority must be between 1 and 5");
+
+        TaskStruct memory taskAux = TaskStruct ( {
+            owner: msg.sender,
+            name: _name,
+            phase: _phase,
+            priority: _priority
+        });
+        index = tasks.push(taskAux) - 1;
+        nTasks++;
+        myTasks[msg.sender].push(index);
+
+        emit TaskAdded(msg.sender, _name, _phase, _priority);
+    }
+
 }
