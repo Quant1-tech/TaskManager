@@ -4,7 +4,7 @@
     {
       "constant": true,
       "inputs": [],
-      "name": "nTaks",
+      "name": "nTasks",
       "outputs": [
         {
           "name": "",
@@ -14,23 +14,101 @@
       "payable": false,
       "stateMutability": "view",
       "type": "function"
+    },
+    {
+      "inputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "name": "phase",
+          "type": "uint8"
+        },
+        {
+          "indexed": false,
+          "name": "priority",
+          "type": "uint256"
+        }
+      ],
+      "name": "TaskAdded",
+      "type": "event"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_taskIndex",
+          "type": "uint256"
+        },
+        {
+          "name": "_phase",
+          "type": "uint8"
+        }
+      ],
+      "name": "updatePhase",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_taskIndex",
+          "type": "uint256"
+        }
+      ],
+      "name": "getTask",
+      "outputs": [
+        {
+          "name": "_owner",
+          "type": "address"
+        },
+        {
+          "name": "_phase",
+          "type": "uint8"
+        },
+        {
+          "name": "_priority",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.4+commit.9549d8ff\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[],\"name\":\"nTaks\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/home/eduardo/github/TaskManager/contracts/TaskManager.sol\":\"TaskManager\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/eduardo/github/TaskManager/contracts/TaskManager.sol\":{\"keccak256\":\"0x3fda70b0a3be85a0a4419c11b843c28bed3ab5803725bc43c91684a83e91c61c\",\"urls\":[\"bzzr://16a82751ae451c48c788fced2a043e034c5614e436899752c7d0c00dcd2024f1\"]}},\"version\":1}",
-  "bytecode": "0x6080604052348015600f57600080fd5b5060988061001e6000396000f3fe6080604052348015600f57600080fd5b50600436106045576000357c010000000000000000000000000000000000000000000000000000000090048063d560c23514604a575b600080fd5b60506066565b6040518082815260200191505060405180910390f35b6000548156fea165627a7a72305820692289b314ef4c4cf8883a988a3718d82c6e5e4e89f707611ccb7eba2a8a5b9e0029",
-  "deployedBytecode": "0x6080604052348015600f57600080fd5b50600436106045576000357c010000000000000000000000000000000000000000000000000000000090048063d560c23514604a575b600080fd5b60506066565b6040518082815260200191505060405180910390f35b6000548156fea165627a7a72305820692289b314ef4c4cf8883a988a3718d82c6e5e4e89f707611ccb7eba2a8a5b9e0029",
-  "sourceMap": "25:311:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;25:311:1;;;;;;;",
-  "deployedSourceMap": "25:311:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;25:311:1;;;;;;;;;;;;;;;;;;;;52:17;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;:::o",
-  "source": "pragma solidity ^0.5.4;\n\ncontract TaskManager {\n    uint public nTaks;\n\n    enum TaskPhase { ToDo, InProgress, Done, Blocked, Review, Postponed, Canceled }\n\n    struct TaskStruct {\n        address owner;\n        string name;\n        TaskPhase phase;\n        // Priority 1-5: 1 -> higher, 5 less important\n        uint priority;\n    }\n\n}",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.4+commit.9549d8ff\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[{\"name\":\"_taskIndex\",\"type\":\"uint256\"}],\"name\":\"getTask\",\"outputs\":[{\"name\":\"_owner\",\"type\":\"address\"},{\"name\":\"_phase\",\"type\":\"uint8\"},{\"name\":\"_priority\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"nTasks\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_taskIndex\",\"type\":\"uint256\"},{\"name\":\"_phase\",\"type\":\"uint8\"}],\"name\":\"updatePhase\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"name\",\"type\":\"string\"},{\"indexed\":false,\"name\":\"phase\",\"type\":\"uint8\"},{\"indexed\":false,\"name\":\"priority\",\"type\":\"uint256\"}],\"name\":\"TaskAdded\",\"type\":\"event\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/home/eduardo/github/TaskManager/contracts/TaskManager.sol\":\"TaskManager\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/eduardo/github/TaskManager/contracts/TaskManager.sol\":{\"keccak256\":\"0xcd30835cd9673ad719913cd7cf6ef2f542160a7934e74dd093d47e0521382ed2\",\"urls\":[\"bzzr://2a9091949d2b536f5212b3cd5e96d60ac72bfa4d7dc4d89de1313fb9875bdd37\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5060008081905550610363806100276000396000f3fe608060405234801561001057600080fd5b506004361061005e576000357c0100000000000000000000000000000000000000000000000000000000900480631d65e77e14610063578063e2c53075146100ed578063e95528f11461010b575b600080fd5b61008f6004803603602081101561007957600080fd5b8101908080359060200190929190505050610146565b604051808473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018360068111156100d157fe5b60ff168152602001828152602001935050505060405180910390f35b6100f5610275565b6040518082815260200191505060405180910390f35b6101446004803603604081101561012157600080fd5b8101908080359060200190929190803560ff16906020019092919050505061027b565b005b6000806000808411801561015b575060005484105b15156101cf576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260148152602001807f496e646578207461736b206e6f7420666f756e6400000000000000000000000081525060200191505060405180910390fd5b60006001858154811015156101e057fe5b906000526020600020906004020160000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169050600060018681548110151561022557fe5b906000526020600020906004020160020160009054906101000a900460ff169050600060018781548110151561025757fe5b90600052602060002090600402016003015490505050509193909250565b60005481565b813373ffffffffffffffffffffffffffffffffffffffff166001828154811015156102a257fe5b906000526020600020906004020160000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff161415610332578160018481548110151561030057fe5b906000526020600020906004020160020160006101000a81548160ff0219169083600681111561032c57fe5b02179055505b50505056fea165627a7a72305820f743255464aa695e95d9e75744664df9907a663eff00ec8c1f3e1a45998935d60029",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061005e576000357c0100000000000000000000000000000000000000000000000000000000900480631d65e77e14610063578063e2c53075146100ed578063e95528f11461010b575b600080fd5b61008f6004803603602081101561007957600080fd5b8101908080359060200190929190505050610146565b604051808473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018360068111156100d157fe5b60ff168152602001828152602001935050505060405180910390f35b6100f5610275565b6040518082815260200191505060405180910390f35b6101446004803603604081101561012157600080fd5b8101908080359060200190929190803560ff16906020019092919050505061027b565b005b6000806000808411801561015b575060005484105b15156101cf576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260148152602001807f496e646578207461736b206e6f7420666f756e6400000000000000000000000081525060200191505060405180910390fd5b60006001858154811015156101e057fe5b906000526020600020906004020160000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169050600060018681548110151561022557fe5b906000526020600020906004020160020160009054906101000a900460ff169050600060018781548110151561025757fe5b90600052602060002090600402016003015490505050509193909250565b60005481565b813373ffffffffffffffffffffffffffffffffffffffff166001828154811015156102a257fe5b906000526020600020906004020160000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff161415610332578160018481548110151561030057fe5b906000526020600020906004020160020160006101000a81548160ff0219169083600681111561032c57fe5b02179055505b50505056fea165627a7a72305820f743255464aa695e95d9e75744664df9907a663eff00ec8c1f3e1a45998935d60029",
+  "sourceMap": "26:1699:1:-;;;424:50;8:9:-1;5:2;;;30:1;27;20:12;5:2;424:50:1;465:1;456:6;:10;;;;26:1699;;;;;;",
+  "deployedSourceMap": "26:1699:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;26:1699:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1374:348;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;1374:348:1;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;53:18;;;:::i;:::-;;;;;;;;;;;;;;;;;;;1234:134;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;1234:134:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;1374:348;1430:14;1446:16;1464:14;1511:1;1498:10;:14;:37;;;;;1529:6;;1516:10;:19;1498:37;1489:71;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1570:14;1587:5;1593:10;1587:17;;;;;;;;;;;;;;;;;;;;:23;;;;;;;;;;;;1570:40;;1620:16;1639:5;1645:10;1639:17;;;;;;;;;;;;;;;;;;;;:23;;;;;;;;;;;;1620:42;;1672:14;1689:5;1695:10;1689:17;;;;;;;;;;;;;;;;;;;;:26;;;1672:43;;1374:348;;;;;;;;:::o;53:18::-;;;;:::o;1234:134::-;1308:10;1184;1157:37;;:5;1163:10;1157:17;;;;;;;;;;;;;;;;;;;;:23;;;;;;;;;;;;:37;;;1153:68;;;1355:6;1329:5;1335:10;1329:17;;;;;;;;;;;;;;;;;;;;:23;;;:32;;;;;;;;;;;;;;;;;;;;;;;;1153:68;1234:134;;;:::o",
+  "source": "pragma solidity ^0.5.4;\n\n\ncontract TaskManager {\n    uint public nTasks;\n\n    enum TaskPhase { ToDo, InProgress, Done, Blocked, Review, Postponed, Canceled }\n\n    struct TaskStruct {\n        address owner;\n        string name;\n        TaskPhase phase;\n        // Priority 1-5: 1 -> higher, 5 less important\n        uint priority;\n    }\n\n    TaskStruct [] private tasks;\n\n    mapping(address => uint[]) private myTasks;\n\n    constructor () public {\n        nTasks = 0;\n\n    }\n\n    /*\n        Criar um tipo de evento TaskAdded\n        Neste evento são informados o endereço do dono da tarefa;\n        O nome da tarefa;\n        Seu status e\n        Sua prioridade\n\n    */\n    event TaskAdded (address owner, string name, TaskPhase phase, uint priority);\n\n    \n    /*\n        modifier é utilizado para alterar o comportamento das funções.\n        Por exemplo, eles podem verificar automaticamente uma condição antes de executar a função.\n        Nosso projeto tem o modifier onlyOwner, que será utilizado para que somente o owner \n        possa acessar uma tarefa a partir do seu índice.\n    */\n    modifier onlyOwner (uint _taskIndex) {\n        if (tasks[_taskIndex].owner == msg.sender){\n            _;\n        }\n    }\n\n\n    function updatePhase(uint _taskIndex, TaskPhase _phase) public onlyOwner (_taskIndex){\n        tasks[_taskIndex].phase = _phase;\n    }\n\n    function getTask (uint _taskIndex) public view returns (address _owner, TaskPhase _phase, uint _priority){\n        require (_taskIndex > 0 && _taskIndex < nTasks, \"Index task not found\");\n        address _owner = tasks[_taskIndex].owner;\n        TaskPhase _phase = tasks[_taskIndex].phase;\n        uint _priority = tasks[_taskIndex].priority;\n    }\n\n}",
   "sourcePath": "/home/eduardo/github/TaskManager/contracts/TaskManager.sol",
   "ast": {
     "absolutePath": "/home/eduardo/github/TaskManager/contracts/TaskManager.sol",
     "exportedSymbols": {
       "TaskManager": [
-        54
+        157
       ]
     },
-    "id": 55,
+    "id": 158,
     "nodeType": "SourceUnit",
     "nodes": [
       {
@@ -50,9 +128,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 54,
+        "id": 157,
         "linearizedBaseContracts": [
-          54
+          157
         ],
         "name": "TaskManager",
         "nodeType": "ContractDefinition",
@@ -60,10 +138,10 @@
           {
             "constant": false,
             "id": 36,
-            "name": "nTaks",
+            "name": "nTasks",
             "nodeType": "VariableDeclaration",
-            "scope": 54,
-            "src": "52:17:1",
+            "scope": 157,
+            "src": "53:18:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -74,7 +152,7 @@
               "id": 35,
               "name": "uint",
               "nodeType": "ElementaryTypeName",
-              "src": "52:4:1",
+              "src": "53:4:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint256",
                 "typeString": "uint256"
@@ -91,48 +169,48 @@
                 "id": 37,
                 "name": "ToDo",
                 "nodeType": "EnumValue",
-                "src": "93:4:1"
+                "src": "95:4:1"
               },
               {
                 "id": 38,
                 "name": "InProgress",
                 "nodeType": "EnumValue",
-                "src": "99:10:1"
+                "src": "101:10:1"
               },
               {
                 "id": 39,
                 "name": "Done",
                 "nodeType": "EnumValue",
-                "src": "111:4:1"
+                "src": "113:4:1"
               },
               {
                 "id": 40,
                 "name": "Blocked",
                 "nodeType": "EnumValue",
-                "src": "117:7:1"
+                "src": "119:7:1"
               },
               {
                 "id": 41,
                 "name": "Review",
                 "nodeType": "EnumValue",
-                "src": "126:6:1"
+                "src": "128:6:1"
               },
               {
                 "id": 42,
                 "name": "Postponed",
                 "nodeType": "EnumValue",
-                "src": "134:9:1"
+                "src": "136:9:1"
               },
               {
                 "id": 43,
                 "name": "Canceled",
                 "nodeType": "EnumValue",
-                "src": "145:8:1"
+                "src": "147:8:1"
               }
             ],
             "name": "TaskPhase",
             "nodeType": "EnumDefinition",
-            "src": "76:79:1"
+            "src": "78:79:1"
           },
           {
             "canonicalName": "TaskManager.TaskStruct",
@@ -144,7 +222,7 @@
                 "name": "owner",
                 "nodeType": "VariableDeclaration",
                 "scope": 53,
-                "src": "189:13:1",
+                "src": "191:13:1",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -155,7 +233,7 @@
                   "id": 45,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "189:7:1",
+                  "src": "191:7:1",
                   "stateMutability": "nonpayable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
@@ -171,7 +249,7 @@
                 "name": "name",
                 "nodeType": "VariableDeclaration",
                 "scope": 53,
-                "src": "212:11:1",
+                "src": "214:11:1",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -182,7 +260,7 @@
                   "id": 47,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "212:6:1",
+                  "src": "214:6:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -197,7 +275,7 @@
                 "name": "phase",
                 "nodeType": "VariableDeclaration",
                 "scope": 53,
-                "src": "233:15:1",
+                "src": "235:15:1",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -210,7 +288,7 @@
                   "name": "TaskPhase",
                   "nodeType": "UserDefinedTypeName",
                   "referencedDeclaration": 44,
-                  "src": "233:9:1",
+                  "src": "235:9:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_enum$_TaskPhase_$44",
                     "typeString": "enum TaskManager.TaskPhase"
@@ -225,7 +303,7 @@
                 "name": "priority",
                 "nodeType": "VariableDeclaration",
                 "scope": 53,
-                "src": "313:13:1",
+                "src": "315:13:1",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -236,7 +314,7 @@
                   "id": 51,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "313:4:1",
+                  "src": "315:4:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -248,25 +326,1310 @@
             ],
             "name": "TaskStruct",
             "nodeType": "StructDefinition",
-            "scope": 54,
-            "src": "161:172:1",
+            "scope": 157,
+            "src": "163:172:1",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 56,
+            "name": "tasks",
+            "nodeType": "VariableDeclaration",
+            "scope": 157,
+            "src": "341:27:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_struct$_TaskStruct_$53_storage_$dyn_storage",
+              "typeString": "struct TaskManager.TaskStruct[]"
+            },
+            "typeName": {
+              "baseType": {
+                "contractScope": null,
+                "id": 54,
+                "name": "TaskStruct",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 53,
+                "src": "341:10:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_TaskStruct_$53_storage_ptr",
+                  "typeString": "struct TaskManager.TaskStruct"
+                }
+              },
+              "id": 55,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "341:13:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_struct$_TaskStruct_$53_storage_$dyn_storage_ptr",
+                "typeString": "struct TaskManager.TaskStruct[]"
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "constant": false,
+            "id": 61,
+            "name": "myTasks",
+            "nodeType": "VariableDeclaration",
+            "scope": 157,
+            "src": "375:42:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_uint256_$dyn_storage_$",
+              "typeString": "mapping(address => uint256[])"
+            },
+            "typeName": {
+              "id": 60,
+              "keyType": {
+                "id": 57,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "383:7:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "375:26:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_uint256_$dyn_storage_$",
+                "typeString": "mapping(address => uint256[])"
+              },
+              "valueType": {
+                "baseType": {
+                  "id": 58,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "394:4:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "id": 59,
+                "length": null,
+                "nodeType": "ArrayTypeName",
+                "src": "394:6:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                  "typeString": "uint256[]"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "body": {
+              "id": 68,
+              "nodeType": "Block",
+              "src": "446:28:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 66,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 64,
+                      "name": "nTasks",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 36,
+                      "src": "456:6:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "hexValue": "30",
+                      "id": 65,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "465:1:1",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_0_by_1",
+                        "typeString": "int_const 0"
+                      },
+                      "value": "0"
+                    },
+                    "src": "456:10:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 67,
+                  "nodeType": "ExpressionStatement",
+                  "src": "456:10:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 69,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 62,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "436:2:1"
+            },
+            "returnParameters": {
+              "id": 63,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "446:0:1"
+            },
+            "scope": 157,
+            "src": "424:50:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 79,
+            "name": "TaskAdded",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 78,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 71,
+                  "indexed": false,
+                  "name": "owner",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 79,
+                  "src": "692:13:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 70,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "692:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 73,
+                  "indexed": false,
+                  "name": "name",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 79,
+                  "src": "707:11:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 72,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "707:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 75,
+                  "indexed": false,
+                  "name": "phase",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 79,
+                  "src": "720:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_TaskPhase_$44",
+                    "typeString": "enum TaskManager.TaskPhase"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 74,
+                    "name": "TaskPhase",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 44,
+                    "src": "720:9:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_TaskPhase_$44",
+                      "typeString": "enum TaskManager.TaskPhase"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 77,
+                  "indexed": false,
+                  "name": "priority",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 79,
+                  "src": "737:13:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 76,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "737:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "691:60:1"
+            },
+            "src": "675:77:1"
+          },
+          {
+            "body": {
+              "id": 93,
+              "nodeType": "Block",
+              "src": "1143:84:1",
+              "statements": [
+                {
+                  "condition": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    },
+                    "id": 89,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "baseExpression": {
+                          "argumentTypes": null,
+                          "id": 83,
+                          "name": "tasks",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 56,
+                          "src": "1157:5:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_array$_t_struct$_TaskStruct_$53_storage_$dyn_storage",
+                            "typeString": "struct TaskManager.TaskStruct storage ref[] storage ref"
+                          }
+                        },
+                        "id": 85,
+                        "indexExpression": {
+                          "argumentTypes": null,
+                          "id": 84,
+                          "name": "_taskIndex",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 81,
+                          "src": "1163:10:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "1157:17:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_TaskStruct_$53_storage",
+                          "typeString": "struct TaskManager.TaskStruct storage ref"
+                        }
+                      },
+                      "id": 86,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "owner",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 46,
+                      "src": "1157:23:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 87,
+                        "name": "msg",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 172,
+                        "src": "1184:3:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_message",
+                          "typeString": "msg"
+                        }
+                      },
+                      "id": 88,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "sender",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "1184:10:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address_payable",
+                        "typeString": "address payable"
+                      }
+                    },
+                    "src": "1157:37:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "falseBody": null,
+                  "id": 92,
+                  "nodeType": "IfStatement",
+                  "src": "1153:68:1",
+                  "trueBody": {
+                    "id": 91,
+                    "nodeType": "Block",
+                    "src": "1195:26:1",
+                    "statements": [
+                      {
+                        "id": 90,
+                        "nodeType": "PlaceholderStatement",
+                        "src": "1209:1:1"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 94,
+            "name": "onlyOwner",
+            "nodeType": "ModifierDefinition",
+            "parameters": {
+              "id": 82,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 81,
+                  "name": "_taskIndex",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 94,
+                  "src": "1126:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 80,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1126:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1125:17:1"
+            },
+            "src": "1106:121:1",
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 111,
+              "nodeType": "Block",
+              "src": "1319:49:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 109,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "baseExpression": {
+                          "argumentTypes": null,
+                          "id": 104,
+                          "name": "tasks",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 56,
+                          "src": "1329:5:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_array$_t_struct$_TaskStruct_$53_storage_$dyn_storage",
+                            "typeString": "struct TaskManager.TaskStruct storage ref[] storage ref"
+                          }
+                        },
+                        "id": 106,
+                        "indexExpression": {
+                          "argumentTypes": null,
+                          "id": 105,
+                          "name": "_taskIndex",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 96,
+                          "src": "1335:10:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "1329:17:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_TaskStruct_$53_storage",
+                          "typeString": "struct TaskManager.TaskStruct storage ref"
+                        }
+                      },
+                      "id": 107,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "phase",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 50,
+                      "src": "1329:23:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_TaskPhase_$44",
+                        "typeString": "enum TaskManager.TaskPhase"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 108,
+                      "name": "_phase",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 98,
+                      "src": "1355:6:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_TaskPhase_$44",
+                        "typeString": "enum TaskManager.TaskPhase"
+                      }
+                    },
+                    "src": "1329:32:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_TaskPhase_$44",
+                      "typeString": "enum TaskManager.TaskPhase"
+                    }
+                  },
+                  "id": 110,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1329:32:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 112,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "id": 101,
+                    "name": "_taskIndex",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 96,
+                    "src": "1308:10:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  }
+                ],
+                "id": 102,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 100,
+                  "name": "onlyOwner",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 94,
+                  "src": "1297:9:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$_t_uint256_$",
+                    "typeString": "modifier (uint256)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "1297:22:1"
+              }
+            ],
+            "name": "updatePhase",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 99,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 96,
+                  "name": "_taskIndex",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 112,
+                  "src": "1255:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 95,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1255:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 98,
+                  "name": "_phase",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 112,
+                  "src": "1272:16:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_TaskPhase_$44",
+                    "typeString": "enum TaskManager.TaskPhase"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 97,
+                    "name": "TaskPhase",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 44,
+                    "src": "1272:9:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_TaskPhase_$44",
+                      "typeString": "enum TaskManager.TaskPhase"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1254:35:1"
+            },
+            "returnParameters": {
+              "id": 103,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1319:0:1"
+            },
+            "scope": 157,
+            "src": "1234:134:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 155,
+              "nodeType": "Block",
+              "src": "1479:243:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        "id": 130,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "commonType": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          "id": 126,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftExpression": {
+                            "argumentTypes": null,
+                            "id": 124,
+                            "name": "_taskIndex",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 114,
+                            "src": "1498:10:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "nodeType": "BinaryOperation",
+                          "operator": ">",
+                          "rightExpression": {
+                            "argumentTypes": null,
+                            "hexValue": "30",
+                            "id": 125,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "number",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "1511:1:1",
+                            "subdenomination": null,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_rational_0_by_1",
+                              "typeString": "int_const 0"
+                            },
+                            "value": "0"
+                          },
+                          "src": "1498:14:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "&&",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "commonType": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          "id": 129,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftExpression": {
+                            "argumentTypes": null,
+                            "id": 127,
+                            "name": "_taskIndex",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 114,
+                            "src": "1516:10:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "nodeType": "BinaryOperation",
+                          "operator": "<",
+                          "rightExpression": {
+                            "argumentTypes": null,
+                            "id": 128,
+                            "name": "nTasks",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 36,
+                            "src": "1529:6:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "src": "1516:19:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "src": "1498:37:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "496e646578207461736b206e6f7420666f756e64",
+                        "id": 131,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "1537:22:1",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_a3b33df25ace6058babe7bd3fe1e7b0017cb186185718d7172d12099e55bb3d1",
+                          "typeString": "literal_string \"Index task not found\""
+                        },
+                        "value": "Index task not found"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_a3b33df25ace6058babe7bd3fe1e7b0017cb186185718d7172d12099e55bb3d1",
+                          "typeString": "literal_string \"Index task not found\""
+                        }
+                      ],
+                      "id": 123,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        175,
+                        176
+                      ],
+                      "referencedDeclaration": 176,
+                      "src": "1489:7:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 132,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1489:71:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 133,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1489:71:1"
+                },
+                {
+                  "assignments": [
+                    135
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 135,
+                      "name": "_owner",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 155,
+                      "src": "1570:14:1",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      },
+                      "typeName": {
+                        "id": 134,
+                        "name": "address",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "1570:7:1",
+                        "stateMutability": "nonpayable",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 140,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 136,
+                        "name": "tasks",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 56,
+                        "src": "1587:5:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_TaskStruct_$53_storage_$dyn_storage",
+                          "typeString": "struct TaskManager.TaskStruct storage ref[] storage ref"
+                        }
+                      },
+                      "id": 138,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 137,
+                        "name": "_taskIndex",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 114,
+                        "src": "1593:10:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "IndexAccess",
+                      "src": "1587:17:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_TaskStruct_$53_storage",
+                        "typeString": "struct TaskManager.TaskStruct storage ref"
+                      }
+                    },
+                    "id": 139,
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "owner",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": 46,
+                    "src": "1587:23:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "1570:40:1"
+                },
+                {
+                  "assignments": [
+                    142
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 142,
+                      "name": "_phase",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 155,
+                      "src": "1620:16:1",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_TaskPhase_$44",
+                        "typeString": "enum TaskManager.TaskPhase"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 141,
+                        "name": "TaskPhase",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 44,
+                        "src": "1620:9:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_enum$_TaskPhase_$44",
+                          "typeString": "enum TaskManager.TaskPhase"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 147,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 143,
+                        "name": "tasks",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 56,
+                        "src": "1639:5:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_TaskStruct_$53_storage_$dyn_storage",
+                          "typeString": "struct TaskManager.TaskStruct storage ref[] storage ref"
+                        }
+                      },
+                      "id": 145,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 144,
+                        "name": "_taskIndex",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 114,
+                        "src": "1645:10:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "IndexAccess",
+                      "src": "1639:17:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_TaskStruct_$53_storage",
+                        "typeString": "struct TaskManager.TaskStruct storage ref"
+                      }
+                    },
+                    "id": 146,
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "phase",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": 50,
+                    "src": "1639:23:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_TaskPhase_$44",
+                      "typeString": "enum TaskManager.TaskPhase"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "1620:42:1"
+                },
+                {
+                  "assignments": [
+                    149
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 149,
+                      "name": "_priority",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 155,
+                      "src": "1672:14:1",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 148,
+                        "name": "uint",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "1672:4:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 154,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 150,
+                        "name": "tasks",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 56,
+                        "src": "1689:5:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_TaskStruct_$53_storage_$dyn_storage",
+                          "typeString": "struct TaskManager.TaskStruct storage ref[] storage ref"
+                        }
+                      },
+                      "id": 152,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 151,
+                        "name": "_taskIndex",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 114,
+                        "src": "1695:10:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "IndexAccess",
+                      "src": "1689:17:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_TaskStruct_$53_storage",
+                        "typeString": "struct TaskManager.TaskStruct storage ref"
+                      }
+                    },
+                    "id": 153,
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "priority",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": 52,
+                    "src": "1689:26:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "1672:43:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 156,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getTask",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 115,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 114,
+                  "name": "_taskIndex",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 156,
+                  "src": "1392:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 113,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1392:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1391:17:1"
+            },
+            "returnParameters": {
+              "id": 122,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 117,
+                  "name": "_owner",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 156,
+                  "src": "1430:14:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 116,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1430:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 119,
+                  "name": "_phase",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 156,
+                  "src": "1446:16:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_TaskPhase_$44",
+                    "typeString": "enum TaskManager.TaskPhase"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 118,
+                    "name": "TaskPhase",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 44,
+                    "src": "1446:9:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_TaskPhase_$44",
+                      "typeString": "enum TaskManager.TaskPhase"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 121,
+                  "name": "_priority",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 156,
+                  "src": "1464:14:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 120,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1464:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1429:50:1"
+            },
+            "scope": 157,
+            "src": "1374:348:1",
+            "stateMutability": "view",
+            "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 55,
-        "src": "25:311:1"
+        "scope": 158,
+        "src": "26:1699:1"
       }
     ],
-    "src": "0:336:1"
+    "src": "0:1725:1"
   },
   "legacyAST": {
     "absolutePath": "/home/eduardo/github/TaskManager/contracts/TaskManager.sol",
     "exportedSymbols": {
       "TaskManager": [
-        54
+        157
       ]
     },
-    "id": 55,
+    "id": 158,
     "nodeType": "SourceUnit",
     "nodes": [
       {
@@ -286,9 +1649,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 54,
+        "id": 157,
         "linearizedBaseContracts": [
-          54
+          157
         ],
         "name": "TaskManager",
         "nodeType": "ContractDefinition",
@@ -296,10 +1659,10 @@
           {
             "constant": false,
             "id": 36,
-            "name": "nTaks",
+            "name": "nTasks",
             "nodeType": "VariableDeclaration",
-            "scope": 54,
-            "src": "52:17:1",
+            "scope": 157,
+            "src": "53:18:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -310,7 +1673,7 @@
               "id": 35,
               "name": "uint",
               "nodeType": "ElementaryTypeName",
-              "src": "52:4:1",
+              "src": "53:4:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint256",
                 "typeString": "uint256"
@@ -327,48 +1690,48 @@
                 "id": 37,
                 "name": "ToDo",
                 "nodeType": "EnumValue",
-                "src": "93:4:1"
+                "src": "95:4:1"
               },
               {
                 "id": 38,
                 "name": "InProgress",
                 "nodeType": "EnumValue",
-                "src": "99:10:1"
+                "src": "101:10:1"
               },
               {
                 "id": 39,
                 "name": "Done",
                 "nodeType": "EnumValue",
-                "src": "111:4:1"
+                "src": "113:4:1"
               },
               {
                 "id": 40,
                 "name": "Blocked",
                 "nodeType": "EnumValue",
-                "src": "117:7:1"
+                "src": "119:7:1"
               },
               {
                 "id": 41,
                 "name": "Review",
                 "nodeType": "EnumValue",
-                "src": "126:6:1"
+                "src": "128:6:1"
               },
               {
                 "id": 42,
                 "name": "Postponed",
                 "nodeType": "EnumValue",
-                "src": "134:9:1"
+                "src": "136:9:1"
               },
               {
                 "id": 43,
                 "name": "Canceled",
                 "nodeType": "EnumValue",
-                "src": "145:8:1"
+                "src": "147:8:1"
               }
             ],
             "name": "TaskPhase",
             "nodeType": "EnumDefinition",
-            "src": "76:79:1"
+            "src": "78:79:1"
           },
           {
             "canonicalName": "TaskManager.TaskStruct",
@@ -380,7 +1743,7 @@
                 "name": "owner",
                 "nodeType": "VariableDeclaration",
                 "scope": 53,
-                "src": "189:13:1",
+                "src": "191:13:1",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -391,7 +1754,7 @@
                   "id": 45,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "189:7:1",
+                  "src": "191:7:1",
                   "stateMutability": "nonpayable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
@@ -407,7 +1770,7 @@
                 "name": "name",
                 "nodeType": "VariableDeclaration",
                 "scope": 53,
-                "src": "212:11:1",
+                "src": "214:11:1",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -418,7 +1781,7 @@
                   "id": 47,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "212:6:1",
+                  "src": "214:6:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -433,7 +1796,7 @@
                 "name": "phase",
                 "nodeType": "VariableDeclaration",
                 "scope": 53,
-                "src": "233:15:1",
+                "src": "235:15:1",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -446,7 +1809,7 @@
                   "name": "TaskPhase",
                   "nodeType": "UserDefinedTypeName",
                   "referencedDeclaration": 44,
-                  "src": "233:9:1",
+                  "src": "235:9:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_enum$_TaskPhase_$44",
                     "typeString": "enum TaskManager.TaskPhase"
@@ -461,7 +1824,7 @@
                 "name": "priority",
                 "nodeType": "VariableDeclaration",
                 "scope": 53,
-                "src": "313:13:1",
+                "src": "315:13:1",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -472,7 +1835,7 @@
                   "id": 51,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "313:4:1",
+                  "src": "315:4:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -484,16 +1847,1301 @@
             ],
             "name": "TaskStruct",
             "nodeType": "StructDefinition",
-            "scope": 54,
-            "src": "161:172:1",
+            "scope": 157,
+            "src": "163:172:1",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 56,
+            "name": "tasks",
+            "nodeType": "VariableDeclaration",
+            "scope": 157,
+            "src": "341:27:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_struct$_TaskStruct_$53_storage_$dyn_storage",
+              "typeString": "struct TaskManager.TaskStruct[]"
+            },
+            "typeName": {
+              "baseType": {
+                "contractScope": null,
+                "id": 54,
+                "name": "TaskStruct",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 53,
+                "src": "341:10:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_TaskStruct_$53_storage_ptr",
+                  "typeString": "struct TaskManager.TaskStruct"
+                }
+              },
+              "id": 55,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "341:13:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_struct$_TaskStruct_$53_storage_$dyn_storage_ptr",
+                "typeString": "struct TaskManager.TaskStruct[]"
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "constant": false,
+            "id": 61,
+            "name": "myTasks",
+            "nodeType": "VariableDeclaration",
+            "scope": 157,
+            "src": "375:42:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_uint256_$dyn_storage_$",
+              "typeString": "mapping(address => uint256[])"
+            },
+            "typeName": {
+              "id": 60,
+              "keyType": {
+                "id": 57,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "383:7:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "375:26:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_uint256_$dyn_storage_$",
+                "typeString": "mapping(address => uint256[])"
+              },
+              "valueType": {
+                "baseType": {
+                  "id": 58,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "394:4:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "id": 59,
+                "length": null,
+                "nodeType": "ArrayTypeName",
+                "src": "394:6:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                  "typeString": "uint256[]"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "body": {
+              "id": 68,
+              "nodeType": "Block",
+              "src": "446:28:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 66,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 64,
+                      "name": "nTasks",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 36,
+                      "src": "456:6:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "hexValue": "30",
+                      "id": 65,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "465:1:1",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_0_by_1",
+                        "typeString": "int_const 0"
+                      },
+                      "value": "0"
+                    },
+                    "src": "456:10:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 67,
+                  "nodeType": "ExpressionStatement",
+                  "src": "456:10:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 69,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 62,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "436:2:1"
+            },
+            "returnParameters": {
+              "id": 63,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "446:0:1"
+            },
+            "scope": 157,
+            "src": "424:50:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 79,
+            "name": "TaskAdded",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 78,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 71,
+                  "indexed": false,
+                  "name": "owner",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 79,
+                  "src": "692:13:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 70,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "692:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 73,
+                  "indexed": false,
+                  "name": "name",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 79,
+                  "src": "707:11:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 72,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "707:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 75,
+                  "indexed": false,
+                  "name": "phase",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 79,
+                  "src": "720:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_TaskPhase_$44",
+                    "typeString": "enum TaskManager.TaskPhase"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 74,
+                    "name": "TaskPhase",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 44,
+                    "src": "720:9:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_TaskPhase_$44",
+                      "typeString": "enum TaskManager.TaskPhase"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 77,
+                  "indexed": false,
+                  "name": "priority",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 79,
+                  "src": "737:13:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 76,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "737:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "691:60:1"
+            },
+            "src": "675:77:1"
+          },
+          {
+            "body": {
+              "id": 93,
+              "nodeType": "Block",
+              "src": "1143:84:1",
+              "statements": [
+                {
+                  "condition": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    },
+                    "id": 89,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "baseExpression": {
+                          "argumentTypes": null,
+                          "id": 83,
+                          "name": "tasks",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 56,
+                          "src": "1157:5:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_array$_t_struct$_TaskStruct_$53_storage_$dyn_storage",
+                            "typeString": "struct TaskManager.TaskStruct storage ref[] storage ref"
+                          }
+                        },
+                        "id": 85,
+                        "indexExpression": {
+                          "argumentTypes": null,
+                          "id": 84,
+                          "name": "_taskIndex",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 81,
+                          "src": "1163:10:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "1157:17:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_TaskStruct_$53_storage",
+                          "typeString": "struct TaskManager.TaskStruct storage ref"
+                        }
+                      },
+                      "id": 86,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "owner",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 46,
+                      "src": "1157:23:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 87,
+                        "name": "msg",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 172,
+                        "src": "1184:3:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_message",
+                          "typeString": "msg"
+                        }
+                      },
+                      "id": 88,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "sender",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "1184:10:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address_payable",
+                        "typeString": "address payable"
+                      }
+                    },
+                    "src": "1157:37:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "falseBody": null,
+                  "id": 92,
+                  "nodeType": "IfStatement",
+                  "src": "1153:68:1",
+                  "trueBody": {
+                    "id": 91,
+                    "nodeType": "Block",
+                    "src": "1195:26:1",
+                    "statements": [
+                      {
+                        "id": 90,
+                        "nodeType": "PlaceholderStatement",
+                        "src": "1209:1:1"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 94,
+            "name": "onlyOwner",
+            "nodeType": "ModifierDefinition",
+            "parameters": {
+              "id": 82,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 81,
+                  "name": "_taskIndex",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 94,
+                  "src": "1126:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 80,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1126:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1125:17:1"
+            },
+            "src": "1106:121:1",
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 111,
+              "nodeType": "Block",
+              "src": "1319:49:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 109,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "baseExpression": {
+                          "argumentTypes": null,
+                          "id": 104,
+                          "name": "tasks",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 56,
+                          "src": "1329:5:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_array$_t_struct$_TaskStruct_$53_storage_$dyn_storage",
+                            "typeString": "struct TaskManager.TaskStruct storage ref[] storage ref"
+                          }
+                        },
+                        "id": 106,
+                        "indexExpression": {
+                          "argumentTypes": null,
+                          "id": 105,
+                          "name": "_taskIndex",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 96,
+                          "src": "1335:10:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "1329:17:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_TaskStruct_$53_storage",
+                          "typeString": "struct TaskManager.TaskStruct storage ref"
+                        }
+                      },
+                      "id": 107,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "phase",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 50,
+                      "src": "1329:23:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_TaskPhase_$44",
+                        "typeString": "enum TaskManager.TaskPhase"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 108,
+                      "name": "_phase",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 98,
+                      "src": "1355:6:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_TaskPhase_$44",
+                        "typeString": "enum TaskManager.TaskPhase"
+                      }
+                    },
+                    "src": "1329:32:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_TaskPhase_$44",
+                      "typeString": "enum TaskManager.TaskPhase"
+                    }
+                  },
+                  "id": 110,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1329:32:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 112,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "id": 101,
+                    "name": "_taskIndex",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 96,
+                    "src": "1308:10:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  }
+                ],
+                "id": 102,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 100,
+                  "name": "onlyOwner",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 94,
+                  "src": "1297:9:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$_t_uint256_$",
+                    "typeString": "modifier (uint256)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "1297:22:1"
+              }
+            ],
+            "name": "updatePhase",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 99,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 96,
+                  "name": "_taskIndex",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 112,
+                  "src": "1255:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 95,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1255:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 98,
+                  "name": "_phase",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 112,
+                  "src": "1272:16:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_TaskPhase_$44",
+                    "typeString": "enum TaskManager.TaskPhase"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 97,
+                    "name": "TaskPhase",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 44,
+                    "src": "1272:9:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_TaskPhase_$44",
+                      "typeString": "enum TaskManager.TaskPhase"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1254:35:1"
+            },
+            "returnParameters": {
+              "id": 103,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1319:0:1"
+            },
+            "scope": 157,
+            "src": "1234:134:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 155,
+              "nodeType": "Block",
+              "src": "1479:243:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        "id": 130,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "commonType": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          "id": 126,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftExpression": {
+                            "argumentTypes": null,
+                            "id": 124,
+                            "name": "_taskIndex",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 114,
+                            "src": "1498:10:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "nodeType": "BinaryOperation",
+                          "operator": ">",
+                          "rightExpression": {
+                            "argumentTypes": null,
+                            "hexValue": "30",
+                            "id": 125,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "number",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "1511:1:1",
+                            "subdenomination": null,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_rational_0_by_1",
+                              "typeString": "int_const 0"
+                            },
+                            "value": "0"
+                          },
+                          "src": "1498:14:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "&&",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "commonType": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          "id": 129,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftExpression": {
+                            "argumentTypes": null,
+                            "id": 127,
+                            "name": "_taskIndex",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 114,
+                            "src": "1516:10:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "nodeType": "BinaryOperation",
+                          "operator": "<",
+                          "rightExpression": {
+                            "argumentTypes": null,
+                            "id": 128,
+                            "name": "nTasks",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 36,
+                            "src": "1529:6:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "src": "1516:19:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "src": "1498:37:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "496e646578207461736b206e6f7420666f756e64",
+                        "id": 131,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "1537:22:1",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_a3b33df25ace6058babe7bd3fe1e7b0017cb186185718d7172d12099e55bb3d1",
+                          "typeString": "literal_string \"Index task not found\""
+                        },
+                        "value": "Index task not found"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_a3b33df25ace6058babe7bd3fe1e7b0017cb186185718d7172d12099e55bb3d1",
+                          "typeString": "literal_string \"Index task not found\""
+                        }
+                      ],
+                      "id": 123,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        175,
+                        176
+                      ],
+                      "referencedDeclaration": 176,
+                      "src": "1489:7:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 132,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1489:71:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 133,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1489:71:1"
+                },
+                {
+                  "assignments": [
+                    135
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 135,
+                      "name": "_owner",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 155,
+                      "src": "1570:14:1",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      },
+                      "typeName": {
+                        "id": 134,
+                        "name": "address",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "1570:7:1",
+                        "stateMutability": "nonpayable",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 140,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 136,
+                        "name": "tasks",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 56,
+                        "src": "1587:5:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_TaskStruct_$53_storage_$dyn_storage",
+                          "typeString": "struct TaskManager.TaskStruct storage ref[] storage ref"
+                        }
+                      },
+                      "id": 138,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 137,
+                        "name": "_taskIndex",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 114,
+                        "src": "1593:10:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "IndexAccess",
+                      "src": "1587:17:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_TaskStruct_$53_storage",
+                        "typeString": "struct TaskManager.TaskStruct storage ref"
+                      }
+                    },
+                    "id": 139,
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "owner",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": 46,
+                    "src": "1587:23:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "1570:40:1"
+                },
+                {
+                  "assignments": [
+                    142
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 142,
+                      "name": "_phase",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 155,
+                      "src": "1620:16:1",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_TaskPhase_$44",
+                        "typeString": "enum TaskManager.TaskPhase"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 141,
+                        "name": "TaskPhase",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 44,
+                        "src": "1620:9:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_enum$_TaskPhase_$44",
+                          "typeString": "enum TaskManager.TaskPhase"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 147,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 143,
+                        "name": "tasks",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 56,
+                        "src": "1639:5:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_TaskStruct_$53_storage_$dyn_storage",
+                          "typeString": "struct TaskManager.TaskStruct storage ref[] storage ref"
+                        }
+                      },
+                      "id": 145,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 144,
+                        "name": "_taskIndex",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 114,
+                        "src": "1645:10:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "IndexAccess",
+                      "src": "1639:17:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_TaskStruct_$53_storage",
+                        "typeString": "struct TaskManager.TaskStruct storage ref"
+                      }
+                    },
+                    "id": 146,
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "phase",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": 50,
+                    "src": "1639:23:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_TaskPhase_$44",
+                      "typeString": "enum TaskManager.TaskPhase"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "1620:42:1"
+                },
+                {
+                  "assignments": [
+                    149
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 149,
+                      "name": "_priority",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 155,
+                      "src": "1672:14:1",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 148,
+                        "name": "uint",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "1672:4:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 154,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 150,
+                        "name": "tasks",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 56,
+                        "src": "1689:5:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_TaskStruct_$53_storage_$dyn_storage",
+                          "typeString": "struct TaskManager.TaskStruct storage ref[] storage ref"
+                        }
+                      },
+                      "id": 152,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 151,
+                        "name": "_taskIndex",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 114,
+                        "src": "1695:10:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "IndexAccess",
+                      "src": "1689:17:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_TaskStruct_$53_storage",
+                        "typeString": "struct TaskManager.TaskStruct storage ref"
+                      }
+                    },
+                    "id": 153,
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "priority",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": 52,
+                    "src": "1689:26:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "1672:43:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 156,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getTask",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 115,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 114,
+                  "name": "_taskIndex",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 156,
+                  "src": "1392:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 113,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1392:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1391:17:1"
+            },
+            "returnParameters": {
+              "id": 122,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 117,
+                  "name": "_owner",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 156,
+                  "src": "1430:14:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 116,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1430:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 119,
+                  "name": "_phase",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 156,
+                  "src": "1446:16:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_TaskPhase_$44",
+                    "typeString": "enum TaskManager.TaskPhase"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 118,
+                    "name": "TaskPhase",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 44,
+                    "src": "1446:9:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_TaskPhase_$44",
+                      "typeString": "enum TaskManager.TaskPhase"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 121,
+                  "name": "_priority",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 156,
+                  "src": "1464:14:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 120,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1464:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1429:50:1"
+            },
+            "scope": 157,
+            "src": "1374:348:1",
+            "stateMutability": "view",
+            "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 55,
-        "src": "25:311:1"
+        "scope": 158,
+        "src": "26:1699:1"
       }
     ],
-    "src": "0:336:1"
+    "src": "0:1725:1"
   },
   "compiler": {
     "name": "solc",
@@ -501,7 +3149,7 @@
   },
   "networks": {},
   "schemaVersion": "3.2.3",
-  "updatedAt": "2021-11-22T17:00:12.890Z",
+  "updatedAt": "2021-11-22T17:35:32.317Z",
   "devdoc": {
     "methods": {}
   },
