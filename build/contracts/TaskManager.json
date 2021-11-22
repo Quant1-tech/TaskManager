@@ -1,0 +1,511 @@
+{
+  "contractName": "TaskManager",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "nTaks",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.4+commit.9549d8ff\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[],\"name\":\"nTaks\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/home/eduardo/github/TaskManager/contracts/TaskManager.sol\":\"TaskManager\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/eduardo/github/TaskManager/contracts/TaskManager.sol\":{\"keccak256\":\"0x3fda70b0a3be85a0a4419c11b843c28bed3ab5803725bc43c91684a83e91c61c\",\"urls\":[\"bzzr://16a82751ae451c48c788fced2a043e034c5614e436899752c7d0c00dcd2024f1\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b5060988061001e6000396000f3fe6080604052348015600f57600080fd5b50600436106045576000357c010000000000000000000000000000000000000000000000000000000090048063d560c23514604a575b600080fd5b60506066565b6040518082815260200191505060405180910390f35b6000548156fea165627a7a72305820692289b314ef4c4cf8883a988a3718d82c6e5e4e89f707611ccb7eba2a8a5b9e0029",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b50600436106045576000357c010000000000000000000000000000000000000000000000000000000090048063d560c23514604a575b600080fd5b60506066565b6040518082815260200191505060405180910390f35b6000548156fea165627a7a72305820692289b314ef4c4cf8883a988a3718d82c6e5e4e89f707611ccb7eba2a8a5b9e0029",
+  "sourceMap": "25:311:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;25:311:1;;;;;;;",
+  "deployedSourceMap": "25:311:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;25:311:1;;;;;;;;;;;;;;;;;;;;52:17;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity ^0.5.4;\n\ncontract TaskManager {\n    uint public nTaks;\n\n    enum TaskPhase { ToDo, InProgress, Done, Blocked, Review, Postponed, Canceled }\n\n    struct TaskStruct {\n        address owner;\n        string name;\n        TaskPhase phase;\n        // Priority 1-5: 1 -> higher, 5 less important\n        uint priority;\n    }\n\n}",
+  "sourcePath": "/home/eduardo/github/TaskManager/contracts/TaskManager.sol",
+  "ast": {
+    "absolutePath": "/home/eduardo/github/TaskManager/contracts/TaskManager.sol",
+    "exportedSymbols": {
+      "TaskManager": [
+        54
+      ]
+    },
+    "id": 55,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 34,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".4"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:1"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 54,
+        "linearizedBaseContracts": [
+          54
+        ],
+        "name": "TaskManager",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 36,
+            "name": "nTaks",
+            "nodeType": "VariableDeclaration",
+            "scope": 54,
+            "src": "52:17:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 35,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "52:4:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "TaskManager.TaskPhase",
+            "id": 44,
+            "members": [
+              {
+                "id": 37,
+                "name": "ToDo",
+                "nodeType": "EnumValue",
+                "src": "93:4:1"
+              },
+              {
+                "id": 38,
+                "name": "InProgress",
+                "nodeType": "EnumValue",
+                "src": "99:10:1"
+              },
+              {
+                "id": 39,
+                "name": "Done",
+                "nodeType": "EnumValue",
+                "src": "111:4:1"
+              },
+              {
+                "id": 40,
+                "name": "Blocked",
+                "nodeType": "EnumValue",
+                "src": "117:7:1"
+              },
+              {
+                "id": 41,
+                "name": "Review",
+                "nodeType": "EnumValue",
+                "src": "126:6:1"
+              },
+              {
+                "id": 42,
+                "name": "Postponed",
+                "nodeType": "EnumValue",
+                "src": "134:9:1"
+              },
+              {
+                "id": 43,
+                "name": "Canceled",
+                "nodeType": "EnumValue",
+                "src": "145:8:1"
+              }
+            ],
+            "name": "TaskPhase",
+            "nodeType": "EnumDefinition",
+            "src": "76:79:1"
+          },
+          {
+            "canonicalName": "TaskManager.TaskStruct",
+            "id": 53,
+            "members": [
+              {
+                "constant": false,
+                "id": 46,
+                "name": "owner",
+                "nodeType": "VariableDeclaration",
+                "scope": 53,
+                "src": "189:13:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 45,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "189:7:1",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 48,
+                "name": "name",
+                "nodeType": "VariableDeclaration",
+                "scope": 53,
+                "src": "212:11:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 47,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "212:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 50,
+                "name": "phase",
+                "nodeType": "VariableDeclaration",
+                "scope": 53,
+                "src": "233:15:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_enum$_TaskPhase_$44",
+                  "typeString": "enum TaskManager.TaskPhase"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 49,
+                  "name": "TaskPhase",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 44,
+                  "src": "233:9:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_TaskPhase_$44",
+                    "typeString": "enum TaskManager.TaskPhase"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 52,
+                "name": "priority",
+                "nodeType": "VariableDeclaration",
+                "scope": 53,
+                "src": "313:13:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 51,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "313:4:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "TaskStruct",
+            "nodeType": "StructDefinition",
+            "scope": 54,
+            "src": "161:172:1",
+            "visibility": "public"
+          }
+        ],
+        "scope": 55,
+        "src": "25:311:1"
+      }
+    ],
+    "src": "0:336:1"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/eduardo/github/TaskManager/contracts/TaskManager.sol",
+    "exportedSymbols": {
+      "TaskManager": [
+        54
+      ]
+    },
+    "id": 55,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 34,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".4"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:1"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 54,
+        "linearizedBaseContracts": [
+          54
+        ],
+        "name": "TaskManager",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 36,
+            "name": "nTaks",
+            "nodeType": "VariableDeclaration",
+            "scope": 54,
+            "src": "52:17:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 35,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "52:4:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "TaskManager.TaskPhase",
+            "id": 44,
+            "members": [
+              {
+                "id": 37,
+                "name": "ToDo",
+                "nodeType": "EnumValue",
+                "src": "93:4:1"
+              },
+              {
+                "id": 38,
+                "name": "InProgress",
+                "nodeType": "EnumValue",
+                "src": "99:10:1"
+              },
+              {
+                "id": 39,
+                "name": "Done",
+                "nodeType": "EnumValue",
+                "src": "111:4:1"
+              },
+              {
+                "id": 40,
+                "name": "Blocked",
+                "nodeType": "EnumValue",
+                "src": "117:7:1"
+              },
+              {
+                "id": 41,
+                "name": "Review",
+                "nodeType": "EnumValue",
+                "src": "126:6:1"
+              },
+              {
+                "id": 42,
+                "name": "Postponed",
+                "nodeType": "EnumValue",
+                "src": "134:9:1"
+              },
+              {
+                "id": 43,
+                "name": "Canceled",
+                "nodeType": "EnumValue",
+                "src": "145:8:1"
+              }
+            ],
+            "name": "TaskPhase",
+            "nodeType": "EnumDefinition",
+            "src": "76:79:1"
+          },
+          {
+            "canonicalName": "TaskManager.TaskStruct",
+            "id": 53,
+            "members": [
+              {
+                "constant": false,
+                "id": 46,
+                "name": "owner",
+                "nodeType": "VariableDeclaration",
+                "scope": 53,
+                "src": "189:13:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 45,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "189:7:1",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 48,
+                "name": "name",
+                "nodeType": "VariableDeclaration",
+                "scope": 53,
+                "src": "212:11:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 47,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "212:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 50,
+                "name": "phase",
+                "nodeType": "VariableDeclaration",
+                "scope": 53,
+                "src": "233:15:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_enum$_TaskPhase_$44",
+                  "typeString": "enum TaskManager.TaskPhase"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 49,
+                  "name": "TaskPhase",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 44,
+                  "src": "233:9:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_TaskPhase_$44",
+                    "typeString": "enum TaskManager.TaskPhase"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 52,
+                "name": "priority",
+                "nodeType": "VariableDeclaration",
+                "scope": 53,
+                "src": "313:13:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 51,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "313:4:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "TaskStruct",
+            "nodeType": "StructDefinition",
+            "scope": 54,
+            "src": "161:172:1",
+            "visibility": "public"
+          }
+        ],
+        "scope": 55,
+        "src": "25:311:1"
+      }
+    ],
+    "src": "0:336:1"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.4+commit.9549d8ff.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.2.3",
+  "updatedAt": "2021-11-22T17:00:12.890Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}
